@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet shop Bauru</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/mao_petshop.svg" type="image/svg+xml">
+</head>
+<body>
+    <main class="wizard">
+        <section class="wizard__intro" aria-labelledby="wizard-title">
+            <div class="wizard__content">
+                <p class="wizard__eyebrow">Configuracao inicial</p>
+                <h1 id="wizard-title">Vamos montar o site do seu pet shop de racoes</h1>
+                <p class="wizard__description">
+                    Preencha as informacoes abaixo para configurar o site, organizar os pedidos e deixar a publicacao mais rapida.
+                </p>
+            </div>
+
+            <div class="wizard__illustration">
+                <img src="./img/ilustracao_pet.svg" alt="Pessoa segurando um cachorro ao lado de elementos ilustrativos do cadastro do site">
+            </div>
+        </section>
+
+        <section class="wizard__steps" aria-label="Progresso do cadastro">
+            <ol class="steps-list">
+                <li class="steps-list__item steps-list__item--active" aria-current="step">
+                    <span class="steps-list__number">1</span>
+                    <span class="steps-list__label">Negocio</span>
+                </li>
+                <li class="steps-list__item">
+                    <span class="steps-list__number">2</span>
+                    <span class="steps-list__label">Horarios</span>
+                </li>
+                <li class="steps-list__item">
+                    <span class="steps-list__number">3</span>
+                    <span class="steps-list__label">Entrega e visual</span>
+                </li>
+            </ol>
+        </section>
+
+        <form class="wizard__form" action="#" method="post" enctype="multipart/form-data">
+            <section class="form-step form-step--active" aria-labelledby="step-1-title">
+                <header class="form-step__header">
+                    <p class="form-step__counter">Etapa 1 de 3</p>
+                    <h2 id="step-1-title">Informacoes do estabelecimento</h2>
+                    <p>Conte um pouco sobre o negocio e informe os canais de contato para o cliente encontrar voce com facilidade.</p>
+                </header>
+
+                <fieldset class="form-group">
+                    <legend>Dados principais</legend>
+
+                    <div class="field">
+                        <label for="business-name">Nome do estabelecimento</label>
+                        <input id="business-name" name="business_name" type="text" placeholder="Ex.: Casa da Racao Feliz" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="business-description">Descricao do negocio</label>
+                        <textarea id="business-description" name="business_description" rows="5" placeholder="Descreva os produtos, diferenciais e publico atendido." required></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="business-logo">Logotipo</label>
+                        <input id="business-logo" name="business_logo" type="file" accept="image/*">
+                        <small>Opcional. Formatos sugeridos: PNG, JPG ou SVG.</small>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Informacoes de contato</legend>
+
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="phone">Telefone</label>
+                            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(00) 0000-0000" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="whatsapp">WhatsApp</label>
+                            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input id="email" name="email" type="email" placeholder="contato@seudominio.com" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Atendimento</legend>
+
+                    <div class="field">
+                        <label for="service-region">Endereco ou regiao de atendimento</label>
+                        <textarea id="service-region" name="service_region" rows="4" placeholder="Informe o endereco completo ou os bairros/cidades atendidos." required></textarea>
+                    </div>
+                </fieldset>
+            </section>
+
+            <section class="form-step" aria-labelledby="step-2-title" hidden>
+                <header class="form-step__header">
+                    <p class="form-step__counter">Etapa 2 de 3</p>
+                    <h2 id="step-2-title">Horarios de funcionamento</h2>
+                    <p>Escolha faixas de horario comerciais para agilizar o preenchimento da agenda.</p>
+                </header>
+
+                <fieldset class="form-group">
+                    <legend>Agenda semanal</legend>
+                    <p>Selecione abertura e fechamento para cada dia ou marque a opcao de fechado.</p>
+
+                    <div class="schedule-list">
+                        <div class="schedule-item" data-day="monday">
+                            <div class="schedule-item__summary">
+                                <label for="monday-open">Segunda-feira</label>
+                                <label class="schedule-toggle" for="monday-closed">
+                                    <input id="monday-closed" name="monday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="monday-open">Abre</label>
+                                    <select id="monday-open" name="monday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="monday-close">Fecha</label>
+                                    <select id="monday-close" name="monday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="tuesday">
+                            <div class="schedule-item__summary">
+                                <label for="tuesday-open">Terca-feira</label>
+                                <label class="schedule-toggle" for="tuesday-closed">
+                                    <input id="tuesday-closed" name="tuesday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="tuesday-open">Abre</label>
+                                    <select id="tuesday-open" name="tuesday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="tuesday-close">Fecha</label>
+                                    <select id="tuesday-close" name="tuesday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="wednesday">
+                            <div class="schedule-item__summary">
+                                <label for="wednesday-open">Quarta-feira</label>
+                                <label class="schedule-toggle" for="wednesday-closed">
+                                    <input id="wednesday-closed" name="wednesday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="wednesday-open">Abre</label>
+                                    <select id="wednesday-open" name="wednesday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="wednesday-close">Fecha</label>
+                                    <select id="wednesday-close" name="wednesday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="thursday">
+                            <div class="schedule-item__summary">
+                                <label for="thursday-open">Quinta-feira</label>
+                                <label class="schedule-toggle" for="thursday-closed">
+                                    <input id="thursday-closed" name="thursday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="thursday-open">Abre</label>
+                                    <select id="thursday-open" name="thursday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="thursday-close">Fecha</label>
+                                    <select id="thursday-close" name="thursday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="friday">
+                            <div class="schedule-item__summary">
+                                <label for="friday-open">Sexta-feira</label>
+                                <label class="schedule-toggle" for="friday-closed">
+                                    <input id="friday-closed" name="friday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="friday-open">Abre</label>
+                                    <select id="friday-open" name="friday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="friday-close">Fecha</label>
+                                    <select id="friday-close" name="friday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="saturday">
+                            <div class="schedule-item__summary">
+                                <label for="saturday-open">Sabado</label>
+                                <label class="schedule-toggle" for="saturday-closed">
+                                    <input id="saturday-closed" name="saturday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="saturday-open">Abre</label>
+                                    <select id="saturday-open" name="saturday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="saturday-close">Fecha</label>
+                                    <select id="saturday-close" name="saturday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item" data-day="sunday">
+                            <div class="schedule-item__summary">
+                                <label for="sunday-open">Domingo</label>
+                                <label class="schedule-toggle" for="sunday-closed">
+                                    <input id="sunday-closed" name="sunday_closed" type="checkbox" data-schedule-toggle>
+                                    <span>Fechado neste dia</span>
+                                </label>
+                            </div>
+                            <div class="schedule-item__inputs">
+                                <div class="field field--compact">
+                                    <label for="sunday-open">Abre</label>
+                                    <select id="sunday-open" name="sunday_open">
+                                        <option value="">Selecione</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="field field--compact">
+                                    <label for="sunday-close">Fecha</label>
+                                    <select id="sunday-close" name="sunday_close">
+                                        <option value="">Selecione</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+
+            <section class="form-step" aria-labelledby="step-3-title" hidden>
+                <header class="form-step__header">
+                    <p class="form-step__counter">Etapa 3 de 3</p>
+                    <h2 id="step-3-title">Entrega, pagamentos e identidade visual</h2>
+                    <p>Escolha preferencias visuais e como o cliente podera receber e pagar pelos pedidos.</p>
+                </header>
+
+                <fieldset class="form-group">
+                    <legend>Identidade visual</legend>
+
+                    <div class="field">
+                        <label for="brand-colors">Cores ou identidade visual preferida</label>
+                        <textarea id="brand-colors" name="brand_colors" rows="4" placeholder="Ex.: Verde, bege e elementos ligados ao universo pet." required></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Forma de entrega</legend>
+
+                    <div class="choice-list">
+                        <label class="choice-card" for="delivery-own">
+                            <input id="delivery-own" name="delivery_type" type="checkbox" value="proprio">
+                            <span>Delivery proprio</span>
+                        </label>
+
+                        <label class="choice-card" for="delivery-third-party">
+                            <input id="delivery-third-party" name="delivery_type" type="checkbox" value="terceiros">
+                            <span>Entrega por terceiros</span>
+                        </label>
+
+                        <label class="choice-card" for="pickup-store">
+                            <input id="pickup-store" name="delivery_type" type="checkbox" value="retirada">
+                            <span>Retirada no local</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Metodos de pagamento aceitos</legend>
+
+                    <div class="choice-list">
+                        <label class="choice-card" for="payment-credit-card">
+                            <input id="payment-credit-card" name="payment_methods" type="checkbox" value="cartao_credito">
+                            <span>Cartao de credito</span>
+                        </label>
+
+                        <label class="choice-card" for="payment-debit-card">
+                            <input id="payment-debit-card" name="payment_methods" type="checkbox" value="cartao_debito">
+                            <span>Cartao de debito</span>
+                        </label>
+
+                        <label class="choice-card" for="payment-pix">
+                            <input id="payment-pix" name="payment_methods" type="checkbox" value="pix">
+                            <span>Pix</span>
+                        </label>
+
+                        <label class="choice-card" for="payment-cash">
+                            <input id="payment-cash" name="payment_methods" type="checkbox" value="dinheiro">
+                            <span>Dinheiro</span>
+                        </label>
+                    </div>
+                </fieldset>
+            </section>
+
+            <div class="wizard__actions">
+                <button type="button" class="button button--secondary">Voltar</button>
+                <button type="button" class="button button--primary">Continuar</button>
+                <button type="submit" class="button button--primary" hidden>Finalizar cadastro</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
